@@ -9,11 +9,28 @@
         <div>
           <h4>How many paragraphs do you want?</h4>
           <br>
-          <form class="form-inline">
+          <form class="form-inline" method="get">
             <div class="form-group">
-              <div class="">
-                  <input type="text" class="form-control" name="num" placeholder="# of Paragraphs" value="">
-                  <span class=""></span>
+                  <h5>@if (count($errors) > 0)
+                      <div class="form-group has-error has-feedback">
+                          <input type="text" class="form-control" name="number" placeholder="# of Paragraphs" value="{{old('number')}}">
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                      </div>
+                      <br><br>
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                    </div>
+                    @else
+                    <div class="form-group has-success has-feedback">
+                        <input type="text" class="form-control" name="number" placeholder="# of Paragraphs" value="{{$number}}">
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  </div>
+                    @endif
+                  </h5>
               </div>
               <br>
             </div>
@@ -22,7 +39,7 @@
             <button type="submit" class="btn btn-danger">Generate!</button>
           </div>
           </form>
-          <h5>(Min: 1 | Max: 99)</h5>
+
       </div>
           <h4 class="intro">-----------</h4>
           <p><?php echo implode('<p>', $paragraphs);?></p>

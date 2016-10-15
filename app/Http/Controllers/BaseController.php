@@ -14,5 +14,8 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
-
+	protected function formatValidationErrors(Validator $validator)
+     {
+         return $validator->errors()->all();
+     }
 }

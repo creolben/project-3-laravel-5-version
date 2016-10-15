@@ -5,7 +5,10 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;  // <<< See here - no real class, only an alias
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-class MainController extends BaseController {
+use Validator;
+use App\Http\Controllers\Controller;
+
+class MainController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -25,17 +28,33 @@ public function index()
 	 */
 	public function paragraphs(Request $request)
 	{
+    //$this->validate($request, [
+        //'num' => 'numeric|digits_between:1,2',
+
+    //]);
+    $validator = Validator::make($request->all(), [
+            'number' => 'integer|between:1,99',
+
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('paragraphs')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+    $generator = new \Badcow\LoremIpsum\Generator();
+    //validate the input
+
 		//if the number field is empty, assign 0 to avoid error
-      $number = $request->input('num');
-		  $generator = new \Badcow\LoremIpsum\Generator();
-			$message = "form-group has-success has-feedback";
-			$feedback = "glyphicon glyphicon-ok form-control-feedback";
-			#$fieldValue = $_GET['num'];
-			$paragraphs = $generator->getParagraphs($number + 1);
+     if ($request->has('number')) {
+        $number = $request->input('number');
+  			$paragraphs = $generator->getParagraphs($number);
 
-
-
-		return \View::make('p_generator', compact('paragraphs','number','message','feedback','fieldValue'));
+    }else{
+      	$paragraphs = $generator->getParagraphs(0);
+				$number = $request->input('number');
+    }
+    return \View::make('p_generator', compact('paragraphs','number'));
 	}
 
 
