@@ -26,72 +26,57 @@ public function index()
 	 *
 	 * @return Response
 	 */
-	public function paragraphs(Request $request)
+public function paragraphs(Request $request)
 	{
-    //$this->validate($request, [
-        //'num' => 'numeric|digits_between:1,2',
-
-    //]);
+		$number = "";
+		//validate the input
     $validator = Validator::make($request->all(), [
-            'number' => 'integer|between:1,99',
+            'number' => 'sometimes|required|integer|between:1,99',
 
         ]);
 
-        if ($validator->fails()) {
-            return redirect('paragraphs')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-    $generator = new \Badcow\LoremIpsum\Generator();
-    //validate the input
-
-		//if the number field is empty, assign 0 to avoid error
-     if ($request->has('number')) {
-        $number = $request->input('number');
-  			$paragraphs = $generator->getParagraphs($number);
-
-    }else{
-      	$paragraphs = $generator->getParagraphs(0);
-				$number = $request->input('number');
+    if ($validator->fails()) {
+        return redirect('paragraphs')
+                    ->withErrors($validator)
+                    ->withInput();
     }
-    return \View::make('p_generator', compact('paragraphs','number'));
-	}
-
-
+		//create generator object
+    $generator = new \Badcow\LoremIpsum\Generator();
+		//assign input value to variable number
+		$number = $request->input('number');
+		$paragraphs = $generator->getParagraphs($number);
+		//go to p generator page with paragraphs and number variables embeded
+		return \View::make('p_generator', compact('paragraphs','number'));
+}
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
-	public function user_gen()
+	public function user_gen(Request $request)
 	{
+		$number = 1;
+		//validate the input
+    $validator = Validator::make($request->all(), [
+            'number' => 'sometimes|required|integer|between:1,99',
+
+        ]);
+
+    if ($validator->fails()) {
+        return redirect('user')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
 
 		/*
 		  validate number is not empty, is a number and greater than 1
 		*/
-		if (isset($_GET['num']) AND !empty($_GET['num']) AND is_numeric($_GET['num']) AND $_GET['num'] > 0 AND $_GET['num'] <= 99){
-				$number = $_GET['num'];
-				$message = "form-group has-success has-feedback";
-				$feedback = "glyphicon glyphicon-ok form-control-feedback";
-				$fieldValue = $_GET['num'];
-		}elseif (empty($_GET['num'])) {
-				$fieldValue = "";
-				$number = 0;
-				$message = "form-group has-error has-feedback";
-				$feedback = "glyphicon glyphicon-remove form-control-feedback";
-			}
-
-		else {
-				$fieldValue = $_GET['num'];
-				$number = 0;
-				$message = "form-group has-error has-feedback";
-				$feedback = "glyphicon glyphicon-remove form-control-feedback";
-			}
+		$number = $request->input('number');
 		// alternatively, use another PSR-0 compliant autoloader (like the Symfony2 ClassLoader for instance)
 
 		// use the factory to create a Faker\Generator instance
 		$faker = \Faker\Factory::create();
-		return \View::make('u_generator', compact('faker','number','message','feedback','fieldValue'));
+		return \View::make('u_generator', compact('faker','number'));
 	}
 
 

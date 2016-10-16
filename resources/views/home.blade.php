@@ -2,8 +2,7 @@
 @extends('layout')
 @section('content')
 
-<div class="row">
-  <div class="col-md-12 backg">
+
     <div class="col-md-6 inner col-xs-6 col-xs-offset-3 col-sm-6">
       <div class="text-box">
           <h2 class="intro">Generators</h2>
@@ -21,6 +20,4 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 @stop
