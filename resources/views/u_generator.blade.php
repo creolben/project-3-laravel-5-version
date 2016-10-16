@@ -1,3 +1,4 @@
+
 <div class="hidden">
 require_once '/path/to/Faker/src/autoload.php';
 </div>
@@ -79,21 +80,14 @@ require_once '/path/to/Faker/src/autoload.php';
                                     </div>
                                   </p>
                                   </div>
-                                  <div class="bottom">
-                                      <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-                                          <i class="fa fa-twitter"></i>
-                                      </a>
-                                      <a class="btn btn-danger btn-sm" rel="publisher"
-                                         href="https://plus.google.com/+ahmshahnuralam">
-                                          <i class="fa fa-google-plus"></i>
-                                      </a>
-                                      <a class="btn btn-primary btn-sm" rel="publisher"
-                                         href="https://plus.google.com/shahnuralam">
-                                          <i class="fa fa-facebook"></i>
-                                      </a>
-                                      <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-                                          <i class="fa fa-behance"></i>
-                                      </a>
+                                  <div class="container">
+                                    <!--Facebook-->
+                                    <button type="button" class="btn btn-primary btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
+                                        <!--Twitter-->
+                                        <button type="button" class="btn btn-tw btn-info"><i class="fa fa-twitter left"></i> Twitter</button>
+                                        <!--Google +-->
+                                        <button type="button" class="btn btn-gplus btn-danger"><i class="fa fa-google-plus left"></i> Google +</button>
+
                                   </div>
                               </div>
 

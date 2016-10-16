@@ -746,7 +746,7 @@ input[placeholder], [placeholder], *[placeholder] {
     display: inline-block;
     width: 100%;
     padding: 10px 20px;
-    line-height: 29px;
+    line-height: 399px;
     text-align: center;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -816,4 +816,9 @@ input[placeholder], [placeholder], *[placeholder] {
 .user-email-color
 {
 		color:#feff86;
+}
+.bottom{
+	width: 60px;
+	height: 60px;
+	align-items: center;
 }
