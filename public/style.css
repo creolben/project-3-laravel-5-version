@@ -61,7 +61,7 @@
 		background-size: cover;
 		color: white;
 		cursor: default;
-		padding: 180px 0 120px;
+		padding: 180px 0 190px;
 		text-align: center;
 		width: 100%;
 		float: left;
@@ -77,7 +77,7 @@
 		background-size: cover;
 		color: white;
 		cursor: default;
-		padding: 180px 0 180px;
+		padding: 180px 0 190px;
 		text-align: center;
 		width: 100%;
 		float: left;
@@ -129,7 +129,6 @@
 	font-size: 55px;
 	font-weight: 700;
 	color: #fff;
-	border-bottom: 7px double #fa3447;
 	border-top: 7px double #fa3447;
 	text-transform: uppercase;
 	line-height: 1.5;
@@ -140,6 +139,14 @@
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 1;
+}
+.text-box h4
+{
+	font-size: 30px;
+	font-weight: 700;
+	color: #fff;
+	line-height: 1.5;
+	font-family: 'Roboto', sans-serif;
 }
 .text-box p
 {

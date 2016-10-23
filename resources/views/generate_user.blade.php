@@ -13,6 +13,7 @@ require_once '/path/to/Faker/src/autoload.php';
               <h4>How many users do you want?</h4>
               <br>
               <form class="form-inline" method="get">
+                 {{ csrf_field() }}
                 <div class="form-group">
                   <h5>@if (count($errors) > 0)
                       <div class="form-group has-error has-feedback">
@@ -39,22 +40,19 @@ require_once '/path/to/Faker/src/autoload.php';
 
           </div>
           </form>
-          <h2 class="intro">-----------</h2>
+          <h2 class="intro">....</h2>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" >
                   @for ($i=0; $i < $number; $i++)
-                  <div class="container">
-
-                    <div class="row">
-
-                      <div class="col-lg-8 col-sm-6">
+                      <div class="col-lg-12 col-sm-6">
                               <div class="card hovercard">
                                   <div>
-                                         <img alt="User Pic" src="{{$faker->imageUrl($width = 750, $height = 235)}}">
+                                         <img alt="User Pic" src="{{$faker->imageUrl($width = 840, $height = 235)}}">
                                   </div>
-                                  <div class="row">
+                                  <div class="row span8">
                                     <div class="col-md-3 col-lg-3 avatar" align="center"> <img alt="User Pic" src="{{$faker->imageUrl($width = 480, $height = 480)}}" class="img-circle img-responsive"> </div>
                                     <p>
                                     <div class=" col-md-8 col-lg-8 ">
+
                                       <table class="table user-information-color">
                                         <tbody>
                                           <tr>
@@ -80,7 +78,7 @@ require_once '/path/to/Faker/src/autoload.php';
                                     </div>
                                   </p>
                                   </div>
-                                  <div class="container">
+                                  <div class="row span8">
                                     <!--Facebook-->
                                     <button type="button" class="btn btn-primary btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
                                         <!--Twitter-->
@@ -90,11 +88,7 @@ require_once '/path/to/Faker/src/autoload.php';
 
                                   </div>
                               </div>
-
                           </div>
-
-                    </div>
-                  </div>
                   @endfor
                           </div>
                         <br>

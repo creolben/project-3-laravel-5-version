@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'MainController@index');
-Route::get('user', 'MainController@user_gen');
-Route::get('paragraphs', 'MainController@paragraphs');
+Route::get('user', 'UserController@generate_user');
+Route::get('paragraphs', 'ParagraphController@generate_paragraphs');

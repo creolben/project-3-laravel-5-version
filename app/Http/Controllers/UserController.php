@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 
-class MainController extends Controller {
+class UserController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *

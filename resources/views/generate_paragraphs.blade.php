@@ -35,15 +35,16 @@
               </div>
               <br>
             </div>
-            <br><br>
             <div class="row">
             <button type="submit" class="btn btn-danger">Generate!</button>
           </div>
           </form>
-
+          <h2 class="intro">....</h2>
       </div>
-          <h4 class="intro">-----------</h4>
+        <div class="row">
+
           <p><?php echo implode('<p>', $paragraphs);?></p>
+        </div>
       </div>
     </div>
   </div>

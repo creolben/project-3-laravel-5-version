@@ -8,25 +8,14 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 
-class MainController extends Controller {
+class ParagraphController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-public function index()
-{
 
-	return \View::make('home');
-}
-
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-public function paragraphs(Request $request)
+public function generate_paragraphs(Request $request)
 	{
 		$number = "";
 		//validate the input
@@ -46,38 +35,13 @@ public function paragraphs(Request $request)
 		$number = $request->input('number');
 		$paragraphs = $generator->getParagraphs($number);
 		//go to p generator page with paragraphs and number variables embeded
-		return \View::make('p_generator', compact('paragraphs','number'));
+		return \View::make('generate_paragraphs', compact('paragraphs','number'));
 }
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
 	 */
-	public function generate_user(Request $request)
-	{
-		$number = 1;
-		//validate the input
-    $validator = Validator::make($request->all(), [
-            'number' => 'sometimes|required|integer|between:1,99',
-
-        ]);
-
-    if ($validator->fails()) {
-        return redirect('user')
-                    ->withErrors($validator)
-                    ->withInput();
-    }
-
-		/*
-		  validate number is not empty, is a number and greater than 1
-		*/
-		$number = $request->input('number');
-		// alternatively, use another PSR-0 compliant autoloader (like the Symfony2 ClassLoader for instance)
-
-		// use the factory to create a Faker\Generator instance
-		$faker = \Faker\Factory::create();
-		return \View::make('generate_user', compact('faker','number'));
-	}
 
 
 }
