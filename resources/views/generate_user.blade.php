@@ -17,7 +17,7 @@ require_once '/path/to/Faker/src/autoload.php';
                 <div class="form-group">
                   <h5>@if (count($errors) > 0)
                       <div class="form-group has-error has-feedback">
-                          <input type="text" class="form-control" name="number" placeholder="# of users" value="{{old('number')}}" style="background:#feffe6;">
+                          <input type="text" class="form-control col-md-3" name="number" placeholder="# of users" value="{{old('number')}}" style="background:#feffe6;">
                           <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                       </div>
                       <br><br>
@@ -30,7 +30,7 @@ require_once '/path/to/Faker/src/autoload.php';
                     </div>
                     @else
                     <div class="form-group has-success has-feedbac">
-                        <input type="text" class="form-control" name="number" placeholder="# of user" value="{{$number}}">
+                        <input type="text" class="form-control col-md-3" name="number" placeholder="# of user" value="{{$number}}">
                   </div>
                     @endif
                   </h5>

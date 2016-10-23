@@ -15,28 +15,28 @@ class ParagraphController extends Controller {
 	 * @return Response
 	 */
 
-public function generate_paragraphs(Request $request)
-	{
-		$number = "";
-		//validate the input
-    $validator = Validator::make($request->all(), [
-            'number' => 'sometimes|required|integer|between:1,99',
+	public function generate_paragraphs(Request $request)
+		{
+			$number = "";
+			//validate the input
+	    $validator = Validator::make($request->all(), [
+	            'number' => 'sometimes|required|integer|between:1,99',
 
-        ]);
+	        ]);
 
-    if ($validator->fails()) {
-        return redirect('paragraphs')
-                    ->withErrors($validator)
-                    ->withInput();
-    }
-		//create generator object
-    $generator = new \Badcow\LoremIpsum\Generator();
-		//assign input value to variable number
-		$number = $request->input('number');
-		$paragraphs = $generator->getParagraphs($number);
-		//go to p generator page with paragraphs and number variables embeded
-		return \View::make('generate_paragraphs', compact('paragraphs','number'));
-}
+	    if ($validator->fails()) {
+	        return redirect('paragraphs')
+	                    ->withErrors($validator)
+	                    ->withInput();
+	    }
+			//create generator object
+	    $generator = new \Badcow\LoremIpsum\Generator();
+			//assign input value to variable number
+			$number = $request->input('number');
+			$paragraphs = $generator->getParagraphs($number);
+			//go to p generator page with paragraphs and number variables embeded
+			return \View::make('generate_paragraphs', compact('paragraphs','number'));
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
