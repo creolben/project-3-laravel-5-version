@@ -4,7 +4,7 @@
 
 
     <div class="col-md-6 inner col-xs-6 col-xs-offset-3 col-sm-6">
-      <div class="text-box">
+      <div class="home-text-box">
           <h2 class="intro">Generators</h2>
           <br><br>
           <div class="row col-xs-offset-2">

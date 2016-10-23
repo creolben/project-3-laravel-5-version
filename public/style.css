@@ -124,12 +124,30 @@
 	line-height: 1;
 	font-family: 'Poppins', sans-serif;
 }
-.text-box h2
+
+.double-red-lines
+{
+	border-top: 7px double #fa3447;
+	border-bottom: 7px double #fa3447;
+	line-height: 1.5;
+}
+.home-text-box h2
 {
 	font-size: 55px;
 	font-weight: 700;
 	color: #fff;
 	border-top: 7px double #fa3447;
+	border-bottom: 7px double #fa3447;
+	text-transform: uppercase;
+	line-height: 1.5;
+	font-family: 'Roboto', sans-serif;
+}
+.text-box h2
+{
+	font-size: 55px;
+	font-weight: 700;
+	color: #fff;
+	
 	text-transform: uppercase;
 	line-height: 1.5;
 	font-family: 'Roboto', sans-serif;

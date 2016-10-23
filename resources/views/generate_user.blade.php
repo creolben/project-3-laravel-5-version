@@ -9,15 +9,15 @@ require_once '/path/to/Faker/src/autoload.php';
       <div>
         <div class="col-md-10 col-md-offset-1 inner col-xs-10 col-xs-offset-1 col-sm-6">
           <div class="text-box">
-            <div>
-              <h4>How many users do you want?</h4>
+            <div class="double-red-lines">
+              <h3 class="user-email-color">How many users do you want?</h3>
               <br>
               <form class="form-inline" method="get">
                  {{ csrf_field() }}
                 <div class="form-group">
                   <h5>@if (count($errors) > 0)
                       <div class="form-group has-error has-feedback">
-                          <input type="text" class="form-control col-md-3" name="number" placeholder="# of users" value="{{old('number')}}" style="background:#feffe6;">
+                          <input type="text" class="form-control col-md-3" name="number" placeholder="# of users" value="{{old('number')}}" style="background:#feffe6; text-align:center;">
                           <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                       </div>
                       <br><br>
@@ -30,7 +30,7 @@ require_once '/path/to/Faker/src/autoload.php';
                     </div>
                     @else
                     <div class="form-group has-success has-feedbac">
-                        <input type="text" class="form-control col-md-3" name="number" placeholder="# of user" value="{{$number}}">
+                        <input type="text" class="form-control col-md-3" name="number" placeholder="# of user" value="{{$number}}" style="text-align:center;">
                   </div>
                     @endif
                   </h5>
@@ -39,9 +39,10 @@ require_once '/path/to/Faker/src/autoload.php';
               </div>
 
           </div>
+
           </form>
-          <h2 class="intro">....</h2>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" >
+                    <br><br>
                   @for ($i=0; $i < $number; $i++)
                       <div class="col-lg-12 col-sm-6">
                               <div class="card hovercard">
