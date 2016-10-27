@@ -9,7 +9,7 @@
           <br><br>
           <div class="row col-xs-offset-2">
             <div class="col-md-10">
-            <a href="{{action('ParagraphController@generate_paragraphs')}}" type="submit" class=" btn btn-lg btn-success" style="width: 150px;">Paragraphs</a>
+            <a href="{{action('ParagraphController@generate_paragraphs')}}" type="submit" class="btn btn-lg btn-success" style="width: 150px;">Paragraphs</a>
           </div>
         </div>
         <br><br><br>
